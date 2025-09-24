@@ -5,11 +5,12 @@
  * UserManager.php -> Gerencia todas as operações de usuário: registrar, logar e resetar a senha, aplicando as regras de negócio.
  */
 
-use App\Service\UserManager;
 
 require_once __DIR__. '/src/Model/User.php';
 require_once __DIR__. '/src/Service/Validator.php';
 require_once __DIR__. '/src/Service/UserManager.php';
+
+use App\Service\UserManager;
 
 $userManager = new UserManager();
 
