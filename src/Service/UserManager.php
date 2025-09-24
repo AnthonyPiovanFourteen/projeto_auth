@@ -1,8 +1,8 @@
 <?php
 
 namespace App\Service;
-use src\Model\User;
-use src\Service\Validator;
+
+use App\Model\User;
 
 class UserManager
 {
