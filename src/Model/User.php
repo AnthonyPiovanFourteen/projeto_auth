@@ -1,7 +1,6 @@
 <?php
 
-
-namespace src\Model;
+namespace App\Model;
 
 class User
 {
