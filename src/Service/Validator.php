@@ -1,6 +1,6 @@
 <?php
 
-namespace src\Service;
+namespace App\Service;
 class Validator
 {
     public static function validateEmail(string $email): bool
