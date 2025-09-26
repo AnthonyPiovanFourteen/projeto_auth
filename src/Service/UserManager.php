@@ -51,21 +51,21 @@ class UserManager
         return "Login bem-sucedido. Bem-vindo, {$user->getName()}!";
     }
     
-    public function resetPassword(int $userId, string $newPassword): string
-    {
-        if (!Validator::isPasswordStrong($newPassword)) {
-             return "A nova senha não atende aos requisitos de segurança.";
-        }
-        
-        foreach($this->users as $user) {
-            if ($user->getId() === $userId) {
-                // Substitui pela nova senha com hash
-                $newHash = password_hash($newPassword, PASSWORD_DEFAULT);
-                $user->setPasswordHash($newHash);
-                return "Senha alterada com sucesso.";
-            }
-        }
-        
-        return "Usuário não encontrado.";
+public function resetPassword(string $email, string $newPassword): string
+{
+    if (!Validator::isPasswordStrong($newPassword)) {
+        return "A nova senha não atende aos requisitos de segurança.";
     }
+
+    foreach ($this->users as $user) {
+        if ($user->getEmail() === $email) {
+            $newHash = password_hash($newPassword, PASSWORD_DEFAULT);
+            $user->setPasswordHash($newHash);
+
+            return "Senha alterada com sucesso.";
+        }
+    }
+
+    return "Usuário não encontrado.";
+}
 }
